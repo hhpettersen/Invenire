@@ -37,3 +37,5 @@ enum class AdType {
     B2B,
     UNKNOWN;
 }
+
+typealias AdItemList = List<AdItem>
