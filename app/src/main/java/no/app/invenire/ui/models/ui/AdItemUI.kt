@@ -1,8 +1,7 @@
 package no.app.invenire.ui.models.ui
 
-import no.app.invenire.ui.models.network.AdItem
+import no.app.invenire.ui.models.cache.AdItemEntity
 import no.app.invenire.ui.models.network.AdType
-import no.app.invenire.util.NumberFormatter
 
 typealias Ads = List<AdItemUI>
 
@@ -16,15 +15,14 @@ data class AdItemUI(
     val isFavorite: Boolean,
 )
 
-fun List<AdItem>.toUiModels(): List<AdItemUI> = map { it.toUiModel() }
-
-fun AdItem.toUiModel(): AdItemUI =
-    AdItemUI(
-        description = description,
+fun AdItemUI.toEntityModel(): AdItemEntity =
+    AdItemEntity(
         id = id,
+        description = description,
         adType = adType,
-        price = price?.value?.let { NumberFormatter.formatWithSpaces(it) },
+        price = price,
         location = location,
-        imageUrl = image?.url?.let { "https://images.finncdn.no/dynamic/480x360c/$it" },
-        isFavorite = false
+        imageUrl = imageUrl,
     )
+
+fun List<AdItemUI>.toEntityModels(): List<AdItemEntity> = this.map { it.toEntityModel() }
