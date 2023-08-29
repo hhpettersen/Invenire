@@ -57,7 +57,7 @@ fun AdList(
 
 @Preview
 @Composable
-fun PreviewAdList() {
+private fun PreviewAdList() {
     InvenireTheme {
         AdList(
             ads = listOf(

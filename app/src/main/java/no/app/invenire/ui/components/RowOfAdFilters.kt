@@ -80,7 +80,7 @@ private fun AdFilterChip(
 
 @Preview
 @Composable
-fun PreviewFilterCard() {
+private fun PreviewFilterCard() {
     InvenireTheme {
         AdFilterChip(
             adFilterModel = AdFilterModel(
