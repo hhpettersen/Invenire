@@ -97,4 +97,9 @@ dependencies {
 
     // Image Loading - Coil
     implementation(libs.coil)
+
+    // Room
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
 }
