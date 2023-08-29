@@ -8,7 +8,7 @@ import no.app.invenire.ui.models.network.AdImage
 import no.app.invenire.ui.models.network.AdItem
 import no.app.invenire.ui.models.network.AdType
 import no.app.invenire.ui.models.network.Price
-import no.app.invenire.ui.models.ui.toUiModel
+import no.app.invenire.ui.models.network.toUiModel
 import org.junit.Test
 
 class AdItemUITest {

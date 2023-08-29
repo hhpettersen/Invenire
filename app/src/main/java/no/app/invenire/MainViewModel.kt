@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 import no.app.invenire.repository.AdRepository
 import no.app.invenire.ui.components.AdFilter
 import no.app.invenire.ui.models.ui.Ads
-import no.app.invenire.ui.models.ui.toUiModels
 import javax.inject.Inject
 
 @HiltViewModel
@@ -34,38 +33,42 @@ class MainViewModel @Inject constructor(
     }
 
     fun onItemSelected(itemId: String) {
-        _state.update { currentState ->
-            currentState.copy(
-                allAds = currentState.allAds.map { ad ->
-                    if (ad.id == itemId) {
-                        ad.copy(isFavorite = !ad.isFavorite)
-                    } else {
-                        ad
-                    }
-                },
-            )
+        viewModelScope.launch {
+            val isFavorite = _state.value.allAds
+                .firstOrNull { ad -> ad.id == itemId }
+                ?.isFavorite ?: false
+
+            if (isFavorite) {
+                adRepository.removeAd(itemId)
+            } else {
+                _state.value.allAds.firstOrNull { ad -> ad.id == itemId }?.let { ad ->
+                    adRepository.insertAd(ad)
+                }
+            }
+
+            _state.update { currentState ->
+                currentState.copy(
+                    allAds = currentState.allAds.map { ad ->
+                        if (ad.id == itemId) {
+                            ad.copy(isFavorite = !ad.isFavorite)
+                        } else {
+                            ad
+                        }
+                    },
+                )
+            }
         }
     }
 
     private fun getAds() {
         viewModelScope.launch {
-            val result = adRepository.getAds()
+            val ads = adRepository.getAds()
 
-            if (result.isSuccessful) {
-                val adItems = result.body()?.items?.toUiModels() ?: emptyList()
-
-                _state.update { currentState ->
-                    currentState.copy(
-                        allAds = adItems,
-                        isLoading = false,
-                    )
-                }
-            } else {
-                _state.update { currentState ->
-                    currentState.copy(
-                        isLoading = false,
-                    )
-                }
+            _state.update { currentState ->
+                currentState.copy(
+                    allAds = ads,
+                    isLoading = false,
+                )
             }
         }
     }
@@ -73,7 +76,6 @@ class MainViewModel @Inject constructor(
 
 data class ViewState(
     val allAds: Ads = emptyList(),
-    val favoriteAds: Ads = emptyList(),
     val selectedFilter: AdFilter? = null,
     val isLoading: Boolean = true,
 ) {
