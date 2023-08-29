@@ -12,13 +12,12 @@ import no.app.invenire.ViewState
 import no.app.invenire.ui.components.AdFilter
 import no.app.invenire.ui.components.RowOfAdFilters
 import no.app.invenire.ui.components.AdList
-import no.app.invenire.ui.models.AdItemUI
 
 @Composable
 fun AdsScreen(
     state: ViewState,
     onFilterSelected: (AdFilter) -> Unit,
-    onHeartClicked: (AdItemUI) -> Unit,
+    onItemSelected: (String) -> Unit,
 ) {
     Surface(
         modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
@@ -26,7 +25,7 @@ fun AdsScreen(
     ) {
         Column {
             RowOfAdFilters(selectedFilter = state.selectedFilter, onFilterSelected =  onFilterSelected)
-            AdList(ads = state.filteredAds, onHeartClicked = onHeartClicked)
+            AdList(ads = state.filteredAds, onItemSelected = onItemSelected)
         }
     }
 }

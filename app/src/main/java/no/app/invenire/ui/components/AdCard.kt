@@ -31,7 +31,7 @@ import no.app.invenire.ui.theme.Typography
 fun AdCard(
     modifier: Modifier = Modifier,
     ad: AdItemUI,
-    onHeartClicked: (AdItemUI) -> Unit,
+    onItemSelected: (String) -> Unit,
 ) {
     Surface(modifier = modifier) {
         Column {
@@ -42,7 +42,7 @@ fun AdCard(
                 FavoriteAdButton(
                     modifier = Modifier.align(Alignment.TopEnd),
                     isFavorite = ad.isFavorite,
-                    onHeartClicked = { onHeartClicked(ad) },
+                    onItemSelected = { onItemSelected(ad.id) },
                 )
             }
             Text(
@@ -85,11 +85,11 @@ private fun AdImage(imageUrl: String?) {
 private fun FavoriteAdButton(
     modifier: Modifier,
     isFavorite: Boolean,
-    onHeartClicked: () -> Unit
+    onItemSelected: () -> Unit
 ) {
     IconButton(
         modifier = modifier,
-        onClick = { onHeartClicked() }) {
+        onClick = { onItemSelected() }) {
         Icon(
             painter = painterResource(
                 id = if (isFavorite) R.drawable.baseline_favorite_24 else R.drawable.outline_favorite_border_24
@@ -113,6 +113,6 @@ private fun PreviewAdCard() {
             imageUrl = "https://images.finncdn.no/dynamic/480x360c/2023/3/vertical-0/21/3/295/695/523_1539723838.jpg",
             isFavorite = false,
         ),
-        onHeartClicked = {},
+        onItemSelected = {},
     )
 }

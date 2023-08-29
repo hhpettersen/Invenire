@@ -19,7 +19,7 @@ import no.app.invenire.ui.theme.InvenireTheme
 fun AdList(
     modifier: Modifier = Modifier,
     ads: Ads,
-    onHeartClicked: (AdItemUI) -> Unit,
+    onItemSelected: (String) -> Unit,
 ) {
     LazyVerticalStaggeredGrid(
         modifier = modifier,
@@ -32,7 +32,7 @@ fun AdList(
             AdCard(
                 modifier = Modifier,
                 ad = ads[index],
-                onHeartClicked = onHeartClicked,
+                onItemSelected = onItemSelected,
             )
         }
     }
@@ -72,7 +72,7 @@ fun PreviewAdList() {
                     isFavorite = true,
                 ),
             ),
-            onHeartClicked = {},
+            onItemSelected = {},
         )
     }
 }
