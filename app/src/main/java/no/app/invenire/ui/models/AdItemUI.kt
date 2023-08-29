@@ -4,6 +4,8 @@ import no.app.invenire.domain.AdItem
 import no.app.invenire.domain.AdType
 import no.app.invenire.util.NumberFormatter
 
+typealias Ads = List<AdItemUI>
+
 data class AdItemUI(
     val description: String?,
     val id: String,
@@ -14,7 +16,9 @@ data class AdItemUI(
     val isFavorite: Boolean,
 )
 
-fun AdItem.toUiModel(): AdItemUI =
+fun List<AdItem>.toUiModels(): List<AdItemUI> = map { it.toUiModel() }
+
+private fun AdItem.toUiModel(): AdItemUI =
     AdItemUI(
         description = description,
         id = id,
