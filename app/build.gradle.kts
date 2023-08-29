@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "no.app.invenire"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "no.app.invenire"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.material)
 
     // Compose platform (BoM)
     implementation(platform(libs.compose.bom))
