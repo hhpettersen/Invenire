@@ -60,6 +60,16 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    fun refreshAds() {
+        _state.update { currentState ->
+            currentState.copy(
+                allAds = emptyList(),
+                refreshing = true,
+            )
+        }
+        getAds()
+    }
+
     private fun getAds() {
         viewModelScope.launch {
             val ads = adRepository.getAds()
@@ -67,7 +77,7 @@ class MainViewModel @Inject constructor(
             _state.update { currentState ->
                 currentState.copy(
                     allAds = ads,
-                    isLoading = false,
+                    refreshing = false,
                 )
             }
         }
@@ -77,7 +87,7 @@ class MainViewModel @Inject constructor(
 data class ViewState(
     val allAds: Ads = emptyList(),
     val selectedFilter: AdFilter? = null,
-    val isLoading: Boolean = true,
+    val refreshing: Boolean = true,
 ) {
     val filteredAds: Ads
         get() = if (selectedFilter != null) {

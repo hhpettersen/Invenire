@@ -22,6 +22,7 @@ class MainActivity : ComponentActivity() {
                 AdsScreen(
                     state = state.value,
                     onFilterSelected = viewModel::onFilterSelected,
+                    onRefreshed = viewModel::refreshAds,
                     onItemSelected = viewModel::onItemSelected,
                 )
             }

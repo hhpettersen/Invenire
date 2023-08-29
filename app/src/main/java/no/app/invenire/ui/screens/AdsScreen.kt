@@ -17,6 +17,7 @@ import no.app.invenire.ui.components.AdList
 fun AdsScreen(
     state: ViewState,
     onFilterSelected: (AdFilter) -> Unit,
+    onRefreshed: () -> Unit,
     onItemSelected: (String) -> Unit,
 ) {
     Surface(
@@ -24,8 +25,16 @@ fun AdsScreen(
         color = MaterialTheme.colorScheme.background
     ) {
         Column {
-            RowOfAdFilters(selectedFilter = state.selectedFilter, onFilterSelected =  onFilterSelected)
-            AdList(ads = state.filteredAds, onItemSelected = onItemSelected)
+            RowOfAdFilters(
+                selectedFilter = state.selectedFilter,
+                onFilterSelected = onFilterSelected
+            )
+            AdList(
+                ads = state.filteredAds,
+                refreshing = state.refreshing,
+                onRefreshed = onRefreshed,
+                onItemSelected = onItemSelected
+            )
         }
     }
 }
