@@ -2,7 +2,7 @@ package no.app.invenire.ui.components
 
 import androidx.annotation.DrawableRes
 import no.app.invenire.R
-import no.app.invenire.domain.AdType
+import no.app.invenire.ui.models.network.AdType
 
 sealed class AdFilter {
     object Favorite : AdFilter()

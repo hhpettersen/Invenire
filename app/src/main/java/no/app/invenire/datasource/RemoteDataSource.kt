@@ -1,6 +1,6 @@
 package no.app.invenire.datasource
 
-import no.app.invenire.domain.AdResponse
+import no.app.invenire.ui.models.network.AdResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

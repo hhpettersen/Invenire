@@ -1,7 +1,7 @@
-package no.app.invenire.ui.models
+package no.app.invenire.ui.models.ui
 
-import no.app.invenire.domain.AdItem
-import no.app.invenire.domain.AdType
+import no.app.invenire.ui.models.network.AdItem
+import no.app.invenire.ui.models.network.AdType
 import no.app.invenire.util.NumberFormatter
 
 typealias Ads = List<AdItemUI>
@@ -18,7 +18,7 @@ data class AdItemUI(
 
 fun List<AdItem>.toUiModels(): List<AdItemUI> = map { it.toUiModel() }
 
-private fun AdItem.toUiModel(): AdItemUI =
+fun AdItem.toUiModel(): AdItemUI =
     AdItemUI(
         description = description,
         id = id,

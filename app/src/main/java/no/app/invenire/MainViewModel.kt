@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import no.app.invenire.repository.AdRepository
 import no.app.invenire.ui.components.AdFilter
-import no.app.invenire.ui.models.Ads
-import no.app.invenire.ui.models.toUiModels
+import no.app.invenire.ui.models.ui.Ads
+import no.app.invenire.ui.models.ui.toUiModels
 import javax.inject.Inject
 
 @HiltViewModel

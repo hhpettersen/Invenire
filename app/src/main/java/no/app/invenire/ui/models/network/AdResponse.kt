@@ -1,4 +1,4 @@
-package no.app.invenire.domain
+package no.app.invenire.ui.models.network
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
