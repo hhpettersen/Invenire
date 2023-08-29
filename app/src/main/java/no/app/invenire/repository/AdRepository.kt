@@ -1,5 +1,7 @@
 package no.app.invenire.repository
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import no.app.invenire.database.AppDatabase
 import no.app.invenire.datasource.RemoteDataSource
 import no.app.invenire.ui.models.cache.toUiModels
@@ -17,12 +19,18 @@ class AdRepository @Inject constructor(
 ) {
     suspend fun getAds(): List<AdItemUI> {
         val cachedAds = appDatabase.adItemDao().getAll().toUiModels()
-        val remoteAdResponse = remoteDataSource.getAds()
 
-        return if (remoteAdResponse.isSuccessful) {
-            val remoteAds = remoteAdResponse.body()?.items?.toUiModels() ?: return cachedAds
-            mergeCacheAndRemote(cachedAds, remoteAds)
-        } else {
+        return try {
+            val remoteAdResponse = withContext(Dispatchers.IO) {
+                remoteDataSource.getAds()
+            }
+            return if (remoteAdResponse.isSuccessful) {
+                val remoteAds = remoteAdResponse.body()?.items?.toUiModels() ?: return cachedAds
+                mergeCacheAndRemote(cachedAds, remoteAds)
+            } else {
+                cachedAds
+            }
+        } catch (e: Exception) {
             cachedAds
         }
     }
@@ -40,15 +48,15 @@ class AdRepository @Inject constructor(
      * if present. This ensures that the ads are shown in the correct order if the ad exists in both cache and remote.
      * Ads unique to the cache are appended to the result.
      */
-    private fun mergeCacheAndRemote(
+    private suspend fun mergeCacheAndRemote(
         cachedAds: Ads,
         remoteAds: Ads,
-    ): Ads {
+    ): Ads = withContext(Dispatchers.Default) {
         val transformedRemoteAds = remoteAds.map { remote ->
             val cache = cachedAds.firstOrNull { it.id == remote.id }
             cache?.let { remote.copy(isFavorite = it.isFavorite) } ?: remote
         }
         val cachedNotInRemote = cachedAds.filter { cached -> remoteAds.none { it.id == cached.id } }
-        return transformedRemoteAds + cachedNotInRemote
+        return@withContext transformedRemoteAds + cachedNotInRemote
     }
 }
