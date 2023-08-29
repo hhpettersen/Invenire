@@ -27,8 +27,6 @@ data class Price(
 @JsonClass(generateAdapter = true)
 data class AdImage(
     val url: String,
-    val height: Int,
-    val width: Int,
 )
 
 enum class AdType {
@@ -37,5 +35,3 @@ enum class AdType {
     B2B,
     UNKNOWN;
 }
-
-typealias AdItemList = List<AdItem>
