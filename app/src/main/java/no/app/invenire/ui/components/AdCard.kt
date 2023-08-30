@@ -89,7 +89,8 @@ private fun FavoriteAdButton(
 ) {
     IconButton(
         modifier = modifier,
-        onClick = { onItemSelected() }) {
+        onClick = { onItemSelected() }
+    ) {
         Icon(
             painter = painterResource(
                 id = if (isFavorite) R.drawable.baseline_favorite_24 else R.drawable.outline_favorite_border_24

@@ -29,7 +29,8 @@ fun RowOfAdFilters(
     FlowRow(
         modifier
             .fillMaxWidth()
-            .padding(vertical = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)
+            .padding(vertical = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         AdFilterChip(
             adFilterModel = AdFilterModel(

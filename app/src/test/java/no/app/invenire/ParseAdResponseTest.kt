@@ -21,8 +21,13 @@ class ParseAdResponseTest {
     fun setup() {
         moshi = Moshi.Builder()
             .add(
-                AdType::class.java, EnumJsonAdapter.create(AdType::class.java).withUnknownFallback(
-                    AdType.UNKNOWN))
+                AdType::class.java,
+                EnumJsonAdapter.create(
+                    AdType::class.java
+                ).withUnknownFallback(
+                    AdType.UNKNOWN
+                )
+            )
             .addLast(KotlinJsonAdapterFactory())
             .build()
 

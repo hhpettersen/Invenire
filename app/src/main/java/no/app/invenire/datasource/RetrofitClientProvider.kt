@@ -12,7 +12,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object RetrofitClientProvider {
     private val moshi = Moshi.Builder()
         .add(
-            AdType::class.java, EnumJsonAdapter.create(AdType::class.java).withUnknownFallback(
+            AdType::class.java,
+            EnumJsonAdapter.create(AdType::class.java).withUnknownFallback(
                 AdType.UNKNOWN
             )
         )

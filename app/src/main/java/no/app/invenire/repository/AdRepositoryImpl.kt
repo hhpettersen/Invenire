@@ -17,7 +17,7 @@ import javax.inject.Singleton
 class AdRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val appDatabase: AppDatabase,
-): AdRepository {
+) : AdRepository {
     override suspend fun getAds(): List<AdItemUI> {
         val cachedAds = appDatabase.adItemDao().getAll().toUiModels()
 
