@@ -7,8 +7,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import junit.framework.TestCase.assertNull
-import no.app.invenire.ui.models.network.AdResponse
-import no.app.invenire.ui.models.network.AdType
+import models.AdResponse
+import models.AdType
 import org.junit.Before
 import org.junit.Test
 

@@ -54,6 +54,9 @@ android {
 }
 
 dependencies {
+    // Modules
+    implementation(project(mapOf("path" to ":network")))
+
     // Core and Extensions
     implementation(libs.core.ktx)
 

@@ -13,12 +13,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import models.AdType
 import no.app.invenire.ViewState
 import no.app.invenire.ui.components.AdFilter
 import no.app.invenire.ui.components.AdList
 import no.app.invenire.ui.components.RowOfAdFilters
-import no.app.invenire.ui.models.network.AdType
-import no.app.invenire.ui.models.ui.AdItemUI
+import no.app.invenire.ui.models.AdItemUI
 import no.app.invenire.ui.theme.InvenireTheme
 
 @Composable

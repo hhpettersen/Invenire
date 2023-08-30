@@ -42,6 +42,8 @@
   - Seamless filter functionality.
 - **Testing**:
   - Initial foundation for unit testing.
+- **Modularization**:
+  - Separated network-related components into a separate module, promoting a decoupled and maintainable architecture.
 
 ## **8. Areas of Improvement:**
 - **Testing**:

@@ -22,9 +22,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import models.AdType
 import no.app.invenire.R
-import no.app.invenire.ui.models.network.AdType
-import no.app.invenire.ui.models.ui.AdItemUI
+import no.app.invenire.ui.models.AdItemUI
 import no.app.invenire.ui.theme.Typography
 
 @Composable

@@ -15,7 +15,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import no.app.invenire.R
-import no.app.invenire.ui.models.network.AdType
 import no.app.invenire.ui.theme.InvenireTheme
 import no.app.invenire.ui.theme.Typography
 
@@ -87,7 +86,7 @@ private fun PreviewFilterCard() {
             adFilterModel = AdFilterModel(
                 name = "Torget",
                 illustration = R.drawable.outline_shopping_bag_24,
-                filter = AdFilter.Type(AdType.BAP),
+                filter = AdFilter.Type(models.AdType.BAP),
             ),
             selected = false,
             onFilterSelected = {},

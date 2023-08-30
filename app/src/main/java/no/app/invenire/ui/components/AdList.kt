@@ -15,9 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import no.app.invenire.ui.models.network.AdType
-import no.app.invenire.ui.models.ui.AdItemUI
-import no.app.invenire.ui.models.ui.Ads
+import models.AdType
+import no.app.invenire.ui.models.AdItemUI
+import no.app.invenire.ui.models.Ads
 import no.app.invenire.ui.theme.InvenireTheme
 
 @OptIn(ExperimentalMaterialApi::class)
