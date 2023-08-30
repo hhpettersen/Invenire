@@ -16,6 +16,8 @@ hilt = "2.47"
 hilt-navigation = "1.0.0"
 room = "2.5.2"
 material = "1.6.0-alpha04"
+turbine = "1.0.0"
+coroutines-test = "1.7.2"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -46,6 +48,8 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 material = { group = "androidx.compose.material", name = "material", version.ref = "material" }
+couroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
