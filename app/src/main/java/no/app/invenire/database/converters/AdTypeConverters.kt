@@ -1,14 +1,14 @@
 package no.app.invenire.database.converters
 
 import androidx.room.TypeConverter
-import no.app.invenire.ui.models.network.AdType
+import models.AdType
 
 object AdTypeConverters {
     @TypeConverter
     @JvmStatic
-    fun fromAdType(type: AdType): String = type.name
+    fun fromAdType(type: models.AdType): String = type.name
 
     @TypeConverter
     @JvmStatic
-    fun toAdType(value: String): AdType = AdType.valueOf(value)
+    fun toAdType(value: String): models.AdType = models.AdType.valueOf(value)
 }

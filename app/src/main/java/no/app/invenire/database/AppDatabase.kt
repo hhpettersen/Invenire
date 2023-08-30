@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import no.app.invenire.database.converters.AdTypeConverters
 import no.app.invenire.database.dao.AdItemDao
-import no.app.invenire.ui.models.cache.AdItemEntity
+import no.app.invenire.database.models.AdItemEntity
 
 @Database(entities = [AdItemEntity::class], version = 1, exportSchema = false)
 @TypeConverters(AdTypeConverters::class)

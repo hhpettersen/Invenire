@@ -3,13 +3,13 @@ package no.app.invenire.repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import no.app.invenire.database.AppDatabase
-import no.app.invenire.datasource.RemoteDataSource
+import no.app.invenire.database.models.toUiModels
 import no.app.invenire.repository.implementation.AdRepository
-import no.app.invenire.ui.models.cache.toUiModels
-import no.app.invenire.ui.models.network.toUiModels
-import no.app.invenire.ui.models.ui.AdItemUI
-import no.app.invenire.ui.models.ui.Ads
-import no.app.invenire.ui.models.ui.toEntityModel
+import no.app.invenire.ui.models.AdItemUI
+import no.app.invenire.ui.models.Ads
+import no.app.invenire.ui.models.toEntityModel
+import no.app.invenire.ui.models.toUiModels
+import no.app.network.datasource.RemoteDataSource
 import javax.inject.Inject
 import javax.inject.Singleton
 

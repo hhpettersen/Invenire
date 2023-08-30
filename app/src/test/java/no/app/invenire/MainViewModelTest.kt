@@ -10,9 +10,9 @@ import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import models.AdType
 import no.app.invenire.repository.TestAdRepositoryImpl
-import no.app.invenire.ui.models.network.AdType
-import no.app.invenire.ui.models.ui.AdItemUI
+import no.app.invenire.ui.models.AdItemUI
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

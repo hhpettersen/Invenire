@@ -1,9 +1,9 @@
-package no.app.invenire.datasource
+package no.app.network.datasource
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.EnumJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import no.app.invenire.ui.models.network.AdType
+import models.AdType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

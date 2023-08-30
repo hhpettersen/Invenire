@@ -1,15 +1,14 @@
-package no.app.invenire.ui.models.cache
+package no.app.invenire.database.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import no.app.invenire.ui.models.network.AdType
-import no.app.invenire.ui.models.ui.AdItemUI
+import no.app.invenire.ui.models.AdItemUI
 
 @Entity(tableName = "ad_item")
 data class AdItemEntity(
     @PrimaryKey val id: String,
     val description: String?,
-    val adType: AdType,
+    val adType: models.AdType,
     val price: String?,
     val location: String?,
     val imageUrl: String?,

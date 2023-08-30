@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Invenire"
 include(":app")
+include(":network")

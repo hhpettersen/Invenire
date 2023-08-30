@@ -19,6 +19,8 @@ material = "1.6.0-alpha04"
 turbine = "1.0.0"
 coroutines-test = "1.7.2"
 ktlint = "10.2.0"
+appcompat = "1.6.1"
+com-google-android-material-material = "1.9.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -51,6 +53,8 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 material = { group = "androidx.compose.material", name = "material", version.ref = "material" }
 couroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+com-google-android-material-material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }

@@ -4,11 +4,10 @@ import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertFalse
 import junit.framework.TestCase.assertNull
 import junit.framework.TestCase.assertTrue
-import no.app.invenire.ui.models.network.AdImage
-import no.app.invenire.ui.models.network.AdItem
-import no.app.invenire.ui.models.network.AdType
-import no.app.invenire.ui.models.network.Price
-import no.app.invenire.ui.models.network.toUiModel
+import models.AdImage
+import models.AdItem
+import models.AdType
+import models.Price
 import org.junit.Test
 
 class AdItemUITest {

@@ -1,7 +1,7 @@
 package no.app.invenire.repository
 
 import no.app.invenire.repository.implementation.AdRepository
-import no.app.invenire.ui.models.ui.AdItemUI
+import no.app.invenire.ui.models.AdItemUI
 
 class TestAdRepositoryImpl(
     private val ads: List<AdItemUI>,

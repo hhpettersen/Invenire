@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import no.app.invenire.ui.models.cache.AdItemEntity
+import no.app.invenire.database.models.AdItemEntity
 
 @Dao
 interface AdItemDao {
