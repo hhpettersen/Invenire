@@ -4,6 +4,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import no.app.invenire.database.AppDatabase
 import no.app.invenire.datasource.RemoteDataSource
+import no.app.invenire.repository.implementation.AdRepository
 import no.app.invenire.ui.models.cache.toUiModels
 import no.app.invenire.ui.models.network.toUiModels
 import no.app.invenire.ui.models.ui.AdItemUI
@@ -13,11 +14,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class AdRepository @Inject constructor(
+class AdRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val appDatabase: AppDatabase,
-) {
-    suspend fun getAds(): List<AdItemUI> {
+): AdRepository {
+    override suspend fun getAds(): List<AdItemUI> {
         val cachedAds = appDatabase.adItemDao().getAll().toUiModels()
 
         return try {
@@ -35,11 +36,11 @@ class AdRepository @Inject constructor(
         }
     }
 
-    suspend fun insertAd(item: AdItemUI) {
+    override suspend fun insertAd(item: AdItemUI) {
         appDatabase.adItemDao().insert(item.toEntityModel())
     }
 
-    suspend fun removeAd(id: String) {
+    override suspend fun removeAd(id: String) {
         appDatabase.adItemDao().deleteById(id)
     }
 

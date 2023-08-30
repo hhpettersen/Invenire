@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import no.app.invenire.repository.AdRepository
+import no.app.invenire.repository.implementation.AdRepository
 import no.app.invenire.ui.components.AdFilter
 import no.app.invenire.ui.models.ui.Ads
 import javax.inject.Inject
@@ -34,27 +34,20 @@ class MainViewModel @Inject constructor(
 
     fun onItemSelected(itemId: String) {
         viewModelScope.launch {
-            val isFavorite = _state.value.allAds
-                .firstOrNull { ad -> ad.id == itemId }
-                ?.isFavorite ?: false
+            val selectedAd = _state.value.allAds.firstOrNull { it.id == itemId } ?: return@launch
 
-            if (isFavorite) {
+            if (selectedAd.isFavorite) {
                 adRepository.removeAd(itemId)
             } else {
-                _state.value.allAds.firstOrNull { ad -> ad.id == itemId }?.let { ad ->
-                    adRepository.insertAd(ad)
-                }
+                adRepository.insertAd(selectedAd)
             }
 
             _state.update { currentState ->
                 currentState.copy(
                     allAds = currentState.allAds.map { ad ->
-                        if (ad.id == itemId) {
-                            ad.copy(isFavorite = !ad.isFavorite)
-                        } else {
-                            ad
-                        }
-                    },
+                        if (ad.id == itemId) ad.copy(isFavorite = selectedAd.isFavorite.not())
+                        else ad
+                    }
                 )
             }
         }
@@ -72,11 +65,9 @@ class MainViewModel @Inject constructor(
 
     private fun getAds() {
         viewModelScope.launch {
-            val ads = adRepository.getAds()
-
             _state.update { currentState ->
                 currentState.copy(
-                    allAds = ads,
+                    allAds = adRepository.getAds(),
                     refreshing = false,
                 )
             }

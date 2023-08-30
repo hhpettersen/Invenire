@@ -10,6 +10,8 @@ import dagger.hilt.components.SingletonComponent
 import no.app.invenire.database.AppDatabase
 import no.app.invenire.datasource.RemoteDataSource
 import no.app.invenire.datasource.RetrofitClientProvider
+import no.app.invenire.repository.AdRepositoryImpl
+import no.app.invenire.repository.implementation.AdRepository
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -23,4 +25,10 @@ class CommonModule {
         AppDatabase::class.java,
         "ad_database"
     ).build()
+
+    @Provides
+    fun provideAdRepository(
+        remoteDataSource: RemoteDataSource,
+        appDatabase: AppDatabase,
+    ): AdRepository = AdRepositoryImpl(remoteDataSource, appDatabase)
 }
