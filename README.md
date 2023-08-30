@@ -1,7 +1,3 @@
-# Android Ads Display App: A Project Description
-
-![Alt Text](https://media.giphy.com/media/eshz2ncxHVp6r1aBW4/giphy.gif)
-
 ## **1. Architecture & Design:**
 - **Architectural Pattern**:
   - The app employs the **MVVM (Model-View-ViewModel)** pattern, promoting a clean separation of concerns and ease of testing.
@@ -61,3 +57,5 @@
 
 ## **9. What else with More Time:**
 - **Testing, CI/CD, Theming, Product Flavors, Localization, Error Handling**:
+
+![Alt Text](https://media.giphy.com/media/eshz2ncxHVp6r1aBW4/giphy.gif)
