@@ -54,6 +54,8 @@
   - Added for mocking and possible implementation of a test-API.
 - **Localization**:
   - Moving hardcoded strings to a resource file.
+- **UI**:
+  - Replace callbacks in viewmodel and presentation with UI-events (sealed class).
 - **Error Handling**:
   - Improved mechanisms for network and API errors.
 
