@@ -1,10 +1,10 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    kotlin("kapt")
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.com.google.dagger.hilt.android)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -52,11 +52,11 @@ dependencies {
 
     // Serialization - Moshi
     implementation(libs.moshi.kotlin)
-    kaptTest(libs.moshi.codegen)
+    kspTest(libs.moshi.codegen)
     implementation(libs.moshi.adapters)
 
     // Dependency Injection - Hilt
     implementation(libs.dagger.hilt.android)
     implementation(libs.hilt.navigation.compose)
-    kapt(libs.dagger.hilt.android.compiler)
+    ksp(libs.dagger.hilt.android.compiler)
 }
