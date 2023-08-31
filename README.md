@@ -7,6 +7,8 @@
   - **OkHttp** for network request logging.
 - **Image Loading**:
   - Images are loaded using **Coil** in conjunction with Compose.
+- **Dependency injection**
+  - Used Hilt for DI. Though manual DI could work for a small project like this, Hilt helps with potential future growth.
 
 ## **2. Data Persistence:**
 - **Local Database**:
