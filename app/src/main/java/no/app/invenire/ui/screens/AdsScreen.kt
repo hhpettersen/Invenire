@@ -23,13 +23,14 @@ import no.app.invenire.ui.theme.InvenireTheme
 
 @Composable
 fun AdsScreen(
+    modifier: Modifier = Modifier,
     state: ViewState,
     onFilterSelected: (AdFilter) -> Unit,
     onRefreshed: () -> Unit,
     onItemSelected: (String) -> Unit,
 ) {
     Surface(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(horizontal = 16.dp),
         color = MaterialTheme.colorScheme.background
