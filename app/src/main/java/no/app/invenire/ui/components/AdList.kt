@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
@@ -39,7 +40,7 @@ fun AdList(
             contentPadding = PaddingValues(vertical = 16.dp),
             verticalItemSpacing = 32.dp,
         ) {
-            items(ads.size) { index ->
+            items(count = ads.size, key = { ads[it].id }) { index ->
                 AdCard(
                     modifier = Modifier,
                     ad = ads[index],
